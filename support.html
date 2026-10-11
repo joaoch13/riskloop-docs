@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Riskloop support and user guide</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem;color:#172b4d}h1,h2{line-height:1.25}code{background:#f4f5f7;padding:0 .25em}</style>
+</head><body>
+<h1>Riskloop support and user guide</h1>
+<p><b>Contact:</b> <a href="mailto:jcmatos@gmail.com">jcmatos@gmail.com</a>. We answer within two working days (Central European Time).</p>
+
+<h2>Getting started</h2>
+<ol>
+<li>Open a project and choose <b>Risk register</b> in the project sidebar (under Apps).</li>
+<li>Press <b>New risk</b>, or open any issue and use the <b>Risk assessment</b> panel to add it to the register.</li>
+<li>Set likelihood and impact (1 to 5), a treatment, a mitigation plan and the next review date. The owner is the issue's assignee.</li>
+</ol>
+
+<h2>Settings (project admins)</h2>
+<p>Project settings &rarr; <b>Risk register</b>: choose the template (ISO 31000 or ISO 27001), the issue type for new risks and
+the number of days until a new risk's first review.</p>
+
+<h2>The close rule</h2>
+<p>The close rule stops a risk from being closed until it has an owner, a treatment and, unless the treatment is
+"Accept", a mitigation plan. Issues that are not in the register are never blocked.</p>
+<p>A Jira administrator can turn it on with <b>Enable close rule</b> on the settings page. Riskloop adds the validator
+"Risk is ready to close" to every transition into a Done status in the project's workflows. To do it by hand, edit
+the workflow, select the closing transition and add the rule "Risk is ready to close".</p>
+
+<h2>Overdue reviews</h2>
+<p>Once a day Riskloop labels risks whose review date has passed with <code>risk-review-overdue</code> and notifies the owner
+once per review date. Saving a new review date removes the label.</p>
+
+<h2>Searching risks with JQL</h2>
+<ul>
+<li><code>riskScore &gt;= 10</code> &mdash; high and critical risks</li>
+<li><code>riskRating = critical</code> &mdash; also <code>high</code>, <code>medium</code>, <code>low</code></li>
+<li><code>riskTreatment = accept</code> &mdash; also <code>avoid</code>, <code>reduce</code>, <code>transfer</code></li>
+<li><code>riskNextReview &lt; now()</code> &mdash; reviews that are due</li>
+<li><code>riskLikelihood</code>, <code>riskImpact</code> &mdash; the 1 to 5 values</li>
+</ul>
+<p>Use these in filters, dashboards and Jira Automation.</p>
+
+<h2>Scores and ratings</h2>
+<p>Score = likelihood &times; impact (1 to 25). Critical 20+, High 10+, Medium 5+, Low below 5.</p>
+
+<h2>Your data</h2>
+<p>Riskloop runs on Atlassian. Everything is stored in your Jira site. See the <a href="privacy.html">privacy policy</a>.</p>
+</body></html>
