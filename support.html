@@ -30,6 +30,12 @@ once per review date. Saving a new review date removes the label.</p>
 <p>After reviewing a risk, press <b>Mark reviewed</b> in the issue panel. Riskloop records who reviewed it, the date and the
 score in the panel's <b>Review log</b> (the last 20 reviews), and moves the next review date on by the project's review
 interval. The CSV export includes the last review date and reviewer.</p>
+<p>The review log records reviews made in Riskloop. It is stored with the assessment on the issue, so it is not a
+tamper-proof audit trail: someone with permission to edit the issue could change it through Jira's REST API. For audit
+evidence, use it together with Jira's own issue history.</p>
+<p>If the issue's edit screen has no Labels field, Riskloop cannot set the <code>risk-review-overdue</code> label. The
+assessment is still saved and the owner is still notified; the panel shows a warning once. Add Labels to the edit
+screen if you filter on the label.</p>
 
 <h2>Searching risks with JQL</h2>
 <ul>
