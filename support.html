@@ -27,6 +27,9 @@ the workflow, select the closing transition and add the rule "Risk is ready to c
 <h2>Overdue reviews</h2>
 <p>Once a day Riskloop labels risks whose review date has passed with <code>risk-review-overdue</code> and notifies the owner
 once per review date. Saving a new review date removes the label.</p>
+<p>After reviewing a risk, press <b>Mark reviewed</b> in the issue panel. Riskloop records who reviewed it, the date and the
+score in the panel's <b>Review log</b> (the last 20 reviews), and moves the next review date on by the project's review
+interval. The CSV export includes the last review date and reviewer.</p>
 
 <h2>Searching risks with JQL</h2>
 <ul>
@@ -35,11 +38,15 @@ once per review date. Saving a new review date removes the label.</p>
 <li><code>riskTreatment = accept</code> &mdash; also <code>avoid</code>, <code>reduce</code>, <code>transfer</code></li>
 <li><code>riskNextReview &lt; now()</code> &mdash; reviews that are due</li>
 <li><code>riskLikelihood</code>, <code>riskImpact</code> &mdash; the 1 to 5 values</li>
+<li><code>riskResidualScore</code> &mdash; the score after treatment</li>
+<li><code>riskLastReviewed &lt; -365d</code> &mdash; risks not reviewed for a year</li>
 </ul>
 <p>Use these in filters, dashboards and Jira Automation.</p>
 
 <h2>Scores and ratings</h2>
-<p>Score = likelihood &times; impact (1 to 25). Critical 20+, High 10+, Medium 5+, Low below 5.</p>
+<p>Score = likelihood &times; impact (1 to 25). Critical 20+, High 10+, Medium 5+, Low below 5.
+<b>Residual</b> likelihood and impact (shown once a treatment other than Accept is chosen) score the risk as it will be after
+treatment.</p>
 
 <h2>Your data</h2>
 <p>Riskloop runs on Atlassian. Everything is stored in your Jira site. See the <a href="privacy.html">privacy policy</a>.</p>
