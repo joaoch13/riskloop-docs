@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Security policy and incident response</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:760px;margin:40px auto;padding:0 20px;color:#14181a}h2{margin-top:2em}a{color:#0b6b58}</style></head>
+<body>
+<h1>Security policy and incident response</h1>
+<p>Publisher: Joao Duro De Matos (sole proprietorship), Kraków, Poland. Applies to Riskloop, Assetloop and Askloop. Security contact: <a href="mailto:jcmatos@gmail.com">jcmatos@gmail.com</a>. Last reviewed: 13 October 2026.</p>
+
+<h2>How the apps are built</h2>
+<ul>
+<li>All apps run only on Atlassian Forge ("Runs on Atlassian"). There are no servers of ours, no external egress, and customer data stays in Atlassian-hosted storage.</li>
+<li>The apps store only Atlassian account ids for people, and report them to Atlassian's personal data API so closed accounts are removed.</li>
+<li>Each app asks only for the scopes it needs. The apps hold no secrets and never ask users for passwords or API tokens.</li>
+<li>Every release gets an independent code review (with a focus on permissions and injection) and deep testing (unit tests, lint, every screen in a browser) before it reaches production.</li>
+<li>Dependencies are checked with <code>npm audit</code> before each release and kept up to date.</li>
+</ul>
+
+<h2>Access and accounts</h2>
+<ul>
+<li>One person develops and operates the apps. Two-step login is on for the Atlassian, Google and GitHub accounts used for this work, with strong unique passwords.</li>
+<li>Access to these accounts is reviewed every quarter. Workstations run supported, automatically updated operating systems and antivirus.</li>
+<li>Source code is kept in a private GitHub repository.</li>
+</ul>
+
+<h2>Reporting a vulnerability</h2>
+<p>Email <a href="mailto:jcmatos@gmail.com">jcmatos@gmail.com</a> with the app name, what you found and how to reproduce it. You will get a reply within 2 business days.</p>
+
+<h2>Incident response plan</h2>
+<ol>
+<li><strong>Detect and record.</strong> Any report, Atlassian notice or unusual log entry is recorded with the time, the app and what is known.</li>
+<li><strong>Assess.</strong> Decide the severity (Critical, High, Medium, Low) using Atlassian's Marketplace security bug fix policy.</li>
+<li><strong>Contain.</strong> If customer data may be at risk, stop the affected function at once: deploy a fix or a version with the function switched off.</li>
+<li><strong>Notify.</strong> Tell Atlassian within 24 hours of confirming a security incident, through the Ecosystem support portal, and notify affected customers using Atlassian's incident and vulnerability notification templates.</li>
+<li><strong>Fix.</strong> Meet the Marketplace bug fix timelines (Critical and High vulnerabilities in Cloud apps within the policy's limits). Every fix goes through code review and testing before release.</li>
+<li><strong>Review.</strong> After the incident, write down the cause and what changed so it does not happen again.</li>
+</ol>
+</body></html>
